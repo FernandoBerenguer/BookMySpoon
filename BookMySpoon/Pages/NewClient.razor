@@ -1,0 +1,45 @@
+﻿@page "/NewClient"
+@using Data
+@using Interfaces
+@inject IClientsServices ClientsService
+
+<h1>New Client</h1>
+
+<EditForm Model="@client" OnInvalidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="row content">
+        <div class="col-md-1"><label for="Name">Name</label></div>
+        <div class="col-md-2"><InputText id="Name" @bind-Value="client.Name" /></div>
+        <div class="col-md-4"><ValidationMessage For="@(() => client.Name)" /></div>
+    </div>
+    <div class="row content">
+        <div class="col-md-1"><label for="Email">Email</label></div>
+        <div class="col-md-2"><InputText id="EmailAdress" @bind-Value="client.Email" /></div>
+        <div class="col-md-4"><ValidationMessage For="@(() => client.Email)" /></div>
+    </div>
+    <div class="row content">
+        <div class="col-md-1"><label for="PhoneNumber">PhoneNumber</label></div>
+        <div class="col-md-2"><InputText id="PhoneNumber" @bind-Value="client.PhoneNumber" /></div>
+        <div class="col-md-4"><ValidationMessage For="@(() => client.PhoneNumber)" /></div>
+    </div>
+    <div class="row content">
+        <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Save" @onclick="Save" /></div>
+        <div class="col-md-2"> <input type="button" value="Cancel" class="btn btn-danger" @onclick="Cancel" /></div>
+    </div>
+</EditForm>
+
+@code {
+    Client client = new Client();
+
+    protected async Task Save()
+    {
+        await ClientsService.SaveClient(client);
+    }
+    protected void Cancel()
+    {
+
+    }
+
+    private void HandleValidSubmit() => Console.WriteLine("OnValidSubmit");
+}

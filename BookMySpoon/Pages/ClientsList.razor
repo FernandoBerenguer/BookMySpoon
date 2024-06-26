@@ -1,0 +1,49 @@
+﻿@page "/ClientsList"
+@using Data
+@using Interfaces
+@inject IClientsServices clientService
+
+<h1>Client List</h1>
+
+@if (clients == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Client c in clients)
+            {
+                <tr>
+                    <td>@c.Name</td>
+                    <td>@c.Email</td>
+                    <td>@c.PhoneNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<Client> clients;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            clients = await clientService.GetAllClients();
+        }
+        catch
+        {
+            throw;
+        }
+    }
+}
