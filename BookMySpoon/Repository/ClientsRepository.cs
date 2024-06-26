@@ -1,8 +1,8 @@
 ﻿using BookMySpoon.Data;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace BookMySpoon.Repositorio
@@ -44,7 +44,6 @@ namespace BookMySpoon.Repositorio
             }
             catch (SqlException ex)
             {
-                // Detallar la información del error
                 Console.WriteLine($"SQL Error: {ex.Message}");
                 foreach (SqlError error in ex.Errors)
                 {

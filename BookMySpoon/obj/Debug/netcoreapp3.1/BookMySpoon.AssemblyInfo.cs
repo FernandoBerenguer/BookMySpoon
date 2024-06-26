@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookMySpoon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a99e005d98bdf39e1097d686c1e8e5241fee589f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5c28f8b160bc8130665b86505dc9ce53bb483bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookMySpoon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookMySpoon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
